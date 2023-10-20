@@ -9,11 +9,11 @@ public class TargetPositionAuthoring : MonoBehaviour
 
 public class TargetPositionBaker : Baker<TargetPositionAuthoring>
 {
-    public override void Bake(TargetPositionAuthoring targetPosition)
+    public override void Bake(TargetPositionAuthoring authoring)
     {
         var entity = GetEntity(TransformUsageFlags.Dynamic);
         AddComponent(entity,
-            new TargetPosition { Value = targetPosition.value }
+            new TargetPosition { Value = authoring.value }
         );
     }
 }
