@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
 
 public class SpeedAuthoring : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float value;
+}
 
-    // Update is called once per frame
-    void Update()
+public class SpeedBaker : Baker<SpeedAuthoring>
+{
+    public override void Bake(SpeedAuthoring authoring)
     {
-        
+        AddComponent(new Speed {
+                Value = authoring.value
+            });
     }
 }
