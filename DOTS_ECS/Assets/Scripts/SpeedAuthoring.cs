@@ -10,8 +10,9 @@ public class SpeedBaker : Baker<SpeedAuthoring>
 {
     public override void Bake(SpeedAuthoring authoring)
     {
-        AddComponent(new Speed {
-                Value = authoring.value
-            });
+        var entity = GetEntity(TransformUsageFlags.Dynamic);
+        AddComponent(entity,
+            new Speed { Value = authoring.value }
+            );
     }
 }
