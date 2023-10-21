@@ -1,7 +1,10 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-public struct RandomComponent : IComponentData
+namespace CodeMonkey
 {
-   public Random RandomGenerator;
+   public struct RandomComponent : IComponentData
+   {
+      public Random RandomGenerator;
+   }
 }

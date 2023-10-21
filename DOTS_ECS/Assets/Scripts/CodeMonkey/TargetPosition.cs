@@ -1,7 +1,10 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-public struct TargetPosition : IComponentData
+namespace CodeMonkey
 {
-    public float3 Value;
+    public struct TargetPosition : IComponentData
+    {
+        public float3 Value;
+    }
 }

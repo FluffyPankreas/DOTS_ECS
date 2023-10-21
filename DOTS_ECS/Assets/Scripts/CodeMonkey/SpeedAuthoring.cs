@@ -1,18 +1,21 @@
-using UnityEngine;
 using Unity.Entities;
+using UnityEngine;
 
-public class SpeedAuthoring : MonoBehaviour
+namespace CodeMonkey
 {
-    public float value;
-}
-
-public class SpeedBaker : Baker<SpeedAuthoring>
-{
-    public override void Bake(SpeedAuthoring authoring)
+    public class SpeedAuthoring : MonoBehaviour
     {
-        var entity = GetEntity(TransformUsageFlags.Dynamic);
-        AddComponent(entity,
-            new Speed { Value = authoring.value }
+        public float value;
+    }
+
+    public class SpeedBaker : Baker<SpeedAuthoring>
+    {
+        public override void Bake(SpeedAuthoring authoring)
+        {
+            var entity = GetEntity(TransformUsageFlags.Dynamic);
+            AddComponent(entity,
+                new Speed { Value = authoring.value }
             );
+        }
     }
 }

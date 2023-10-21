@@ -2,18 +2,21 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class TargetPositionAuthoring : MonoBehaviour
+namespace CodeMonkey
 {
-    public float3 value;
-}
-
-public class TargetPositionBaker : Baker<TargetPositionAuthoring>
-{
-    public override void Bake(TargetPositionAuthoring authoring)
+    public class TargetPositionAuthoring : MonoBehaviour
     {
-        var entity = GetEntity(TransformUsageFlags.Dynamic);
-        AddComponent(entity,
-            new TargetPosition { Value = authoring.value }
-        );
+        public float3 value;
+    }
+
+    public class TargetPositionBaker : Baker<TargetPositionAuthoring>
+    {
+        public override void Bake(TargetPositionAuthoring authoring)
+        {
+            var entity = GetEntity(TransformUsageFlags.Dynamic);
+            AddComponent(entity,
+                new TargetPosition { Value = authoring.value }
+            );
+        }
     }
 }

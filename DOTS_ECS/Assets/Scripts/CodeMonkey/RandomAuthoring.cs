@@ -1,22 +1,25 @@
-using UnityEngine;
 using Unity.Entities;
+using UnityEngine;
 
-public class RandomAuthoring : MonoBehaviour
+namespace CodeMonkey
 {
-    [Tooltip("The seed to initialized the randomizer with.")]
-    public uint seed = 1;
-}
-
-public class RandomBaker : Baker<RandomAuthoring>
-{
-    public override void Bake(RandomAuthoring authoring)
+    public class RandomAuthoring : MonoBehaviour
     {
-        var entity = GetEntity(TransformUsageFlags.None);
-        AddComponent(entity,
-            new RandomComponent
-            {
-                RandomGenerator = new Unity.Mathematics.Random(authoring.seed)
-            }
-        );
+        [Tooltip("The seed to initialized the randomizer with.")]
+        public uint seed = 1;
+    }
+
+    public class RandomBaker : Baker<RandomAuthoring>
+    {
+        public override void Bake(RandomAuthoring authoring)
+        {
+            var entity = GetEntity(TransformUsageFlags.None);
+            AddComponent(entity,
+                new RandomComponent
+                {
+                    RandomGenerator = new Unity.Mathematics.Random(authoring.seed)
+                }
+            );
+        }
     }
 }

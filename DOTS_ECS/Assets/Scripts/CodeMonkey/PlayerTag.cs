@@ -1,5 +1,8 @@
 using Unity.Entities;
 
-public struct  PlayerTag : IComponentData
+namespace CodeMonkey
 {
+    public struct  PlayerTag : IComponentData
+    {
+    }
 }

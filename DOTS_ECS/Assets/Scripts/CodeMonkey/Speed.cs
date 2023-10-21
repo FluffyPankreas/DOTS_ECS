@@ -1,6 +1,9 @@
 using Unity.Entities;
 
-public struct Speed :IComponentData
+namespace CodeMonkey
 {
-    public float Value;
+    public struct Speed :IComponentData
+    {
+        public float Value;
+    }
 }
