@@ -9,7 +9,10 @@ public partial class MovingSystemBase : SystemBase
         Entities.ForEach(
             (MoveToPositionAspect moveTo) =>
             {
-                moveTo.Move(SystemAPI.Time.DeltaTime,randomGenerator);
+                moveTo.Move(SystemAPI.Time.DeltaTime);
             }).Run();
     }
+
+    
+    
 }

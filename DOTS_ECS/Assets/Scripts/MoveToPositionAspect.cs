@@ -11,11 +11,14 @@ public readonly partial struct MoveToPositionAspect : IAspect
     private readonly RefRO<Speed> _speed;
     private readonly RefRW<TargetPosition> _targetPosition;
  
-    public void Move(float deltaTime, RefRW<RandomComponent> randomComponent)
+    public void Move(float deltaTime)
     {
         var direction = math.normalize(_targetPosition.ValueRO.Value - _transform.ValueRO.Position );
         _transform.ValueRW.Position += direction * _speed.ValueRO.Value * deltaTime;
-        
+    }
+    
+    public void TestReachedTargetPosition(RefRW<RandomComponent> randomComponent)
+    {
         //TODO: Replace with distanceSq for better performance.
         var distance = math.distance(_transform.ValueRO.Position, _targetPosition.ValueRO.Value);
 
