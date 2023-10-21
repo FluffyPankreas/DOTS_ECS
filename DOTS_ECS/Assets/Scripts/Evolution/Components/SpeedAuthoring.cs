@@ -5,7 +5,9 @@ namespace Evolution.Components
 {
     public class SpeedAuthoring : MonoBehaviour
     {
+        [SerializeField,Tooltip("The lower end of the potential walking speed for the entity.")]
         private float speedLow;
+        [SerializeField,Tooltip("The higher end of the potential walking speed for the entity.")]
         private float speedHigh;
 
         public float WalkSpeed { get; private set; }
@@ -14,8 +16,6 @@ namespace Evolution.Components
         {
             WalkSpeed = UnityEngine.Random.Range(speedLow, speedHigh);
         }
-
-
     }
 
     public class SpeedBaker : Baker<SpeedAuthoring>
