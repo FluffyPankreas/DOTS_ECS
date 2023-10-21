@@ -4,13 +4,11 @@ public partial struct MovingISystem : ISystem
 {
     public void OnUpdate(ref SystemState state)
     {
-        var randomGenerator = SystemAPI.GetSingleton<RandomComponent>();
+        var randomGenerator = SystemAPI.GetSingletonRW<RandomComponent>();
 
         foreach (var moveToPositionAspect in SystemAPI.Query<MoveToPositionAspect>())
         {
-            moveToPositionAspect.Move(SystemAPI.Time.DeltaTime,randomGenerator);
+            moveToPositionAspect.Move(SystemAPI.Time.DeltaTime, randomGenerator);
         }
     }
-    
-    public struct MoveJob
 }
