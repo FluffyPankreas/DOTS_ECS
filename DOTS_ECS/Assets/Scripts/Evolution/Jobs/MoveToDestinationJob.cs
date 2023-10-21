@@ -1,15 +1,17 @@
+using Evolution.Aspects;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
 namespace Evolution.Jobs
 {
     [BurstCompile]
     public partial struct MoveToDestinationJob : IJobEntity
     {
-        public void Execute()
+        public float DeltaTime;
+        public void Execute(MoveToDestinationAspect moveToDestinationAspect)
         {
             //Debug.Log("MoveToDestinationJob::Execute");
+            moveToDestinationAspect.Walk(DeltaTime);
         }
     }
 }

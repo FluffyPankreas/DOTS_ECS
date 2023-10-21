@@ -9,7 +9,10 @@ namespace Evolution.Systems
     {
         public void OnUpdate(ref SystemState state)
         {
-            new MoveToDestinationJob().ScheduleParallel();
+            new MoveToDestinationJob
+            {
+                DeltaTime = SystemAPI.Time.DeltaTime
+            }.ScheduleParallel();
         }
     }
 }
