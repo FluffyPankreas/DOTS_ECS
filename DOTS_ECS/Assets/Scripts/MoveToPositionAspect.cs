@@ -11,7 +11,7 @@ public readonly partial struct MoveToPositionAspect : IAspect
     private readonly RefRO<Speed> _speed;
     private readonly RefRW<TargetPosition> _targetPosition;
  
-    public void Move(float deltaTime, RandomComponent randomComponent)
+    public void Move(float deltaTime, RefRW<RandomComponent> randomComponent)
     {
         var direction = math.normalize(_targetPosition.ValueRO.Value - _transform.ValueRO.Position );
         _transform.ValueRW.Position += direction * _speed.ValueRO.Value * deltaTime;
@@ -26,13 +26,13 @@ public readonly partial struct MoveToPositionAspect : IAspect
         }
     }
     
-    private float3 GetRandomPosition(RandomComponent randomComponent)
+    private float3 GetRandomPosition(RefRW<RandomComponent> randomComponent)
     {
         var randomPosition =
             new float3(
-                randomComponent.RandomGenerator.NextFloat(0f,15f),
+                randomComponent.ValueRW.RandomGenerator.NextFloat(0f,15f),
                 0,
-                randomComponent.RandomGenerator.NextFloat(0f,15f)
+                randomComponent.ValueRW.RandomGenerator.NextFloat(0f,15f)
             );
         
         //Debug.Log("RandomPosition: (" + randomPosition.x + "," + randomPosition.y + "," + randomPosition.z + ")");
