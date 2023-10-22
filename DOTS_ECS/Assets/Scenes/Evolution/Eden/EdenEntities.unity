@@ -175,6 +175,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Herbivore
       objectReference: {fileID: 0}
+    - target: {fileID: 2262546255075897140, guid: ca3042ed121f89544b50b49652a3df7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246880060690540, guid: ca3042ed121f89544b50b49652a3df7c, type: 3}
+      propertyPath: destination.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246880060690540, guid: ca3042ed121f89544b50b49652a3df7c, type: 3}
+      propertyPath: destination.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558246880060690540, guid: ca3042ed121f89544b50b49652a3df7c, type: 3}
+      propertyPath: destination.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
