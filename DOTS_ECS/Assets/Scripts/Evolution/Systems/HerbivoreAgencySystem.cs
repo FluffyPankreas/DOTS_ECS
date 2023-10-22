@@ -1,5 +1,6 @@
 using Unity.Burst;
 using Unity.Entities;
+using Evolution.Jobs;
 
 namespace Evolution.Systems
 {
@@ -8,6 +9,9 @@ namespace Evolution.Systems
     {
         public void OnUpdate(ref SystemState state)
         {
+            new FindFoodJob
+            {
+            }.ScheduleParallel();
         }
     }
 }
