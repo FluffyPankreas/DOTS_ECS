@@ -11,11 +11,11 @@ namespace Evolution.Aspects
         
         private readonly RefRW<LocalTransform> _localTransform;
         private readonly RefRO<SpeedComponent> _speed;
-        private readonly RefRO<DestinationComponent> _destination;
+        public readonly RefRW<DestinationComponent> Destination;
 
         public void Walk(float deltaTime)
         {
-            var direction = math.normalize(_destination.ValueRO.Destination - _localTransform.ValueRO.Position);
+            var direction = math.normalize(Destination.ValueRO.Destination - _localTransform.ValueRO.Position);
             _localTransform.ValueRW.Position += direction * _speed.ValueRO.WalkSpeed * deltaTime;
         }
     }
